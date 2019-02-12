@@ -21,7 +21,41 @@ services:
       ES_JAVA_OPTS: "-Xmx1024m -Xms1024m"
     networks:
       - elk
+ 
+  elasticsearch2:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: elasticsearch2
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./elasticsearch/config/elasticsearch-node2.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+    environment:
+      ES_JAVA_OPTS: "-Xmx512m -Xms512m"
+    networks:
+      - elk
 
+  elasticsearch3:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: elasticsearch3
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./elasticsearch/config/elasticsearch-node3.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+    environment:
+      ES_JAVA_OPTS: "-Xmx512m -Xms512m"
+    networks:
+      - elk
+ 
   cerebro:
     image: yannart/cerebro
     container_name: cerebro
@@ -56,6 +90,7 @@ services:
     ports:
       - "5001:5001"
       - "9600:9600"
+      - "5555:5555"
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     networks:
