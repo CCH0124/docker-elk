@@ -5,5 +5,5 @@ FROM docker.elastic.co/elasticsearch/elasticsearch-oss:${ELK_VERSION}
 
 # Add your elasticsearch plugins setup here
 # Example: RUN elasticsearch-plugin install analysis-icu
-# elasticsearch-plugin install ingest-user-agent 
-#RUN elasticsearch-plugin install ingest-user-agent && elasticsearch-plugin install ingest-geoip
+
+RUN elasticsearch-plugin install --batch ingest-attachment

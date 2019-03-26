@@ -1,9 +1,14 @@
 - pipeline.id: file-csv
   queue.type: persisted
-  path.config: "/usr/share/logstash/pipeline/csv.conf"
-- pipeline.id: filebeat
-  queue.type: persisted
-  path.config: "/usr/share/logstash/pipeline/filebeat.conf"
+  path.config: "/usr/share/logstash/pipeline/ips.conf"
+  pipeline.workers: 1
+#- pipeline.id: dns
+#  queue.type: persisted
+#  path.config: "/usr/share/logstash/pipeline/dns.conf"
+#  pipeline.workers: 1
+#- pipeline.id: filebeat
+#  queue.type: persisted
+#  path.config: "/usr/share/logstash/pipeline/filebeat.conf"
 #- pipeline.id: metricbeat
 #  queue.type: persisted
 #  path.config: "/usr/share/logstash/pipeline/metricbeat.conf"
