@@ -115,6 +115,7 @@ services:
     ports:
       - "8999:8999"
       - "9999:9999"
+      - "443:443"
     networks:
       - elk
     depends_on:
