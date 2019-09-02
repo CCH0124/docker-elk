@@ -10,4 +10,8 @@ server.host: "0.0.0.0"
 #server.ssl.key: /usr/share/kibana/config/kibana.key
 #server.ssl.certificate: /usr/share/kibana/config/kibana.crt
 
-elasticsearch.url: "http://elasticsearch:9200"
+#elasticsearch.hosts: ["https://elasticsearch:9999"]
+elasticsearch.hosts: ["http://elasticsearch:9200"]
+elasticsearch.preserveHost: true
+#elasticsearch.username: "elasticsearch"
+#elasticsearch.password: "elasticsearch"
